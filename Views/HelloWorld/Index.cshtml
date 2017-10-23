@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+<h2>My Movie List</h2>
+
+<p>Hello from our View Template!</p>
+<!-- how to display time -->
+    @{
+        DateTime CurrentTime = DateTime.Now;
+        
+            // We can render HTML from within C# code!
+            <h3>The date and time :</h3>
+            <p>@CurrentTime</p>
+        
+    }
+
+    <!-- how to make a form -->
+    <div class="box-div">
+            @foreach(var error in ViewBag.Errors)
+            {
+                <p class="red">@error</p>
+            }
+            <form action="/process" method="post">
+                    <label for="Name">Your Name:</label>
+                    <input type="text" name="Name"/>
+               
+                    <label for="Location">Your Location:</label>
+                    <select name="Location">
+                        <option value="San Jose">San Jose</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Dallas">Dallas</option>
+                        <option value="Washington DC">Washington DC</option>
+                    </select>
+                    <button type="submit">Submit</button>
+            </form>
+    </div>
+
+
